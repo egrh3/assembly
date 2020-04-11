@@ -8,6 +8,6 @@ fi
 src=$1
 bin=$(echo "$(basename ${src})" | cut -d '.' -f 1)
 
-echo "building ${src} to ${bin} .. "
+echo "building ${src} to bin/${bin} .. "
 
-nasm -l num.lst -f elf64 -F dwarf -g ${src} -o art/${bin}.o && ld -o bin/${bin} art/${bin}.o
+nasm -l ${bin}.lst -f elf64 -F dwarf -g ${src} -o art/${bin}.o && ld -o bin/${bin} art/${bin}.o
